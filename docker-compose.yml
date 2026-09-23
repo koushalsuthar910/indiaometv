@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: indiaome
+      POSTGRES_PASSWORD: indiaome
+      POSTGRES_DB: indiaometv
+    ports: ["5432:5432"]
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U indiaome"]
+      interval: 5s
+      retries: 10
+
+  server:
+    build: ./server
+    environment:
+      PORT: 4000
+      CLIENT_URL: http://localhost:5173
+      DATABASE_URL: postgres://indiaome:indiaome@db:5432/indiaometv
+      SESSION_SECRET: change-me
+      JWT_SECRET: change-me
+      ADMIN_TOKEN: dev-admin-token
+      NODE_ENV: production
+    ports: ["4000:4000"]
+    depends_on:
+      db: { condition: service_healthy }
+
+  client:
+    build: ./client
+    environment:
+      VITE_API_URL: http://localhost:4000
+      VITE_STUN_SERVER: stun:stun.l.google.com:19302
+    ports: ["5173:5173"]
+    depends_on: [server]
+
+volumes:
+  pgdata:

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0b0b14"/>
+  <rect x="60" y="60" width="1080" height="510" rx="40" fill="url(#g)" opacity="0.15"/>
+  <text x="600" y="330" font-family="Inter, sans-serif" font-size="96" fill="white" text-anchor="middle" font-weight="800">IndiaomeTV</text>
+  <text x="600" y="410" font-family="Inter, sans-serif" font-size="36" fill="#c7d2fe" text-anchor="middle">Random 1-to-1 Video Chat</text>
+</svg>
