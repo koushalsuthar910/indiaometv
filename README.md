@@ -15,3 +15,7 @@ A production-style random video chat app built with **React + Vite + TypeScript 
 ```bash
 cd server && npm install && cd ..
 cd client && npm install && cd ..
+
+
+server-->npm run dev
+client-->-->npm run dev
