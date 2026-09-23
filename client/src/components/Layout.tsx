@@ -1,3 +1,4 @@
+import DeveloperCard from './DeveloperCard';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 import { PropsWithChildren } from 'react';
@@ -19,13 +20,14 @@ export default function Layout({ children }: PropsWithChildren) {
       )}
       <main className="flex-1 flex flex-col">{children}</main>
       {!hideHeader && (
-        <footer className="text-xs text-slate-400 px-6 py-6 text-center">
-          <div className="mb-2">IndiaomeTV is intended for adults aged 18 and over.</div>
-          <div className="flex gap-3 justify-center">
+               <footer className="text-xs text-slate-400 px-6 py-6 text-center space-y-3">
+          <div>IndiaomeTV is intended for adults aged 18 and over.</div>
+          <div className="flex gap-3 justify-center flex-wrap">
             <Link to="/terms" className="hover:text-slate-200">Terms</Link>
             <Link to="/privacy" className="hover:text-slate-200">Privacy</Link>
             <Link to="/safety" className="hover:text-slate-200">Community Guidelines</Link>
           </div>
+          <DeveloperCard compact />
         </footer>
       )}
     </div>
