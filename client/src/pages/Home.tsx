@@ -1,3 +1,4 @@
+import DeveloperCard from '../components/DeveloperCard';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import PermissionGate, { Consent } from '../components/PermissionGate';
@@ -58,6 +59,7 @@ export default function Home() {
           </div>
         ))}
       </div>
+      <DeveloperCard />
     </div>
   );
 }
